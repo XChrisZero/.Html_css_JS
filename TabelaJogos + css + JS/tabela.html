@@ -12,13 +12,19 @@
 <h1>  Tabela Times </h1>
 
 <body>
-    <button type="button" onclick= "mostrarDataHora()" > Data e Hora </button>
-    <button type="button" onclick= "mudarCorTabela()" > Mudar a cor </button>
-    <button type="button" onclick= "mudarTamanhoLetra()" > Mudar letra </button>
-    <p id="demo"></p>
+    <button type="button" onclick= "horaAtual()" > Data e Hora </button>
+
+    <button type="button" onclick= "mudarCorl1()()" > Mudar a cor </button>
+    <button type="button" onclick= "voltarCor()" > padão </button>
+
+    <button type="button" onclick= "letraGrande()" > Mudar letra </button>
+    <button type="button" onclick= "letraNormal()" > padrão </button>
+
+
+    <p id="date"></p>
 
     <table>
-        <tr class="tab">
+        <tr class="tab" onmouseover="mudarCor()", onmouseout="voltarCor()">
             <th><b>Imagem</b></th>
             <th><b>Posição</b></th>
             <th><b>Time</b></th>
@@ -27,7 +33,8 @@
             <th><b>Qtd. Vitorias</b></th>
             <th><b>Qtd. Derrotas</b></th>
         </tr>
-        <tr id="linhaVasco" class="primeiro">
+
+        <tr id="linhaVasco" class="primeiro" onmouseover="alertaV()">
             <td>
                 <a href="https://www.google.com/search?client=opera&q=vasco&sourceid=opera&ie=UTF-8&oe=UTF-8">
                     <img src="Imagens/VI.png">
@@ -40,7 +47,8 @@
             <td>9</td>
             <td>1</td>
         </tr>
-        <tr id="linhaPalmeiras" class="segundo">
+
+        <tr id="linhaPalmeiras" class="segundo" onmouseover="alertaP()">
             <td>
                 <a href="https://www.google.com/search?q=palmeiras&client=opera-gx&hs=WWL&sca_esv=b3202a6c776f9b4f&sxsrf=AHTn8zqNJRxq8USRiJrP1U_0PDwYM3lP4g%3A1740256309670&ei=NTS6Z_PSKL3e1sQPhPe2wAM&ved=0ahUKEwizwZ_5j9iLAxU9r5UCHYS7DTgQ4dUDCBA&uact=5&oq=palmeiras&gs_lp=Egxnd3Mtd2l6LXNlcnAiCXBhbG1laXJhczIPECMYgAQYJxiKBRhGGP0BMg0QLhiABBixAxhDGIoFMggQABiABBixAzIIEAAYgAQYsQMyBRAuGIAEMgoQABiABBhDGIoFMgoQABiABBhDGIoFMhAQABiABBixAxhDGIMBGIoFMg4QABiABBixAxiDARiKBTINEAAYgAQYsQMYFBiHAjIZEAAYgAQYigUYRhj9ARiXBRiMBRjdBNgBAUjiGlCMEVjuGXAFeAGQAQCYAXmgAaMHqgEDMC44uAEDyAEA-AEBmAINoAKaCMICChAAGLADGNYEGEfCAg0QABiABBiwAxhDGIoFwgIOEAAYsAMY5AIY1gTYAQHCAhMQLhiABBiwAxhDGMgDGIoF2AEBwgIKECMYgAQYJxiKBcICBBAjGCfCAgoQLhiABBhDGIoFwgIcEC4YgAQYsQMYQxiKBRiXBRjcBBjeBBjgBNgBAcICCxAuGIAEGLEDGIMBwgINEAAYgAQYsQMYQxiKBcICChAAGIAEGBQYhwKYAwDiAwUSATEgQIgGAZAGE7oGBggBEAEYCZIHAzUuOKAHr2k&sclient=gws-wiz-serp">
                     <img src="Imagens/PI.png">
@@ -53,7 +61,8 @@
             <td>8</td>
             <td>2</td>
         </tr>
-        <tr id="linhaFlamengo" class="terceiro">
+
+        <tr id="linhaFlamengo" class="terceiro" onmouseover="alertaF()">
             <td>
                 <a href="https://www.google.com/search?q=flamengo&client=opera-gx&hs=oYL&sca_esv=b3202a6c776f9b4f&sxsrf=AHTn8zpMi5fH3NwC919o-peg_0j43pHMJQ%3A1740256452002&ei=wzS6Z_fyPI3P1sQP3LbZmk&ved=0ahUKEwi34I69kNiLAxWNp5UCHVxbFpMQ4dUDCBA&uact=5&oq=flamengo&gs_lp=Egxnd3Mtd2l6LXNlcnAiCGZsYW1lbmdvMg8QIxiABBgnGIoFGEYY_QEyEBAuGIAEGLEDGIMBGBQYhwIyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyChAAGIAEGEMYigUyDRAAGIAEGLEDGEMYigUyChAAGIAEGEMYigUyGRAAGIAEGIoFGEYY_QEYlwUYjAUY3QTYAQFI1xFQhQhYrxBwAngBkAEAmAF5oAGKB6oBAzAuOLgBA8gBAPgBAZgCCqAC1QfCAgoQABiwAxjWBBhHwgINEAAYgAQYsAMYQxiKBcICDhAAGLADGOQCGNYE2AEBwgITEC4YgAQYsAMYQxjIAxiKBdgBAcICChAjGIAEGCcYigXCAhAQLhiABBixAxhDGIMBGIoFwgINEC4YgAQYsQMYQxiKBcICChAuGIAEGEMYigXCAh8QLhiABBixAxhDGIMBGIoFGJcFGNwEGN4EGOAE2AEBwgINEAAYgAQYsQMYFBiHAsICChAAGIAEGBQYhwLCAggQABiABBixA8ICCxAAGIAEGLEDGIMBwgIOEAAYgAQYsQMYgwEYigWYAwCIBgGQBhO6BgYIARABGAmSBwMyLjigB7Ne&sclient=gws-wiz-serp">
                     <img src="Imagens/FI.png">
@@ -66,8 +75,9 @@
             <td>7</td>
             <td>3</td>
         </tr>
+
     </table>
-    <script src="script.js"></script>
+    
 </body>
 
 </html>
