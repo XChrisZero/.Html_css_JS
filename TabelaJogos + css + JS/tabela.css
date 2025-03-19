@@ -8,35 +8,46 @@ table
   border: 2px solid black;
   width: 800px;
   border-collapse: collapse;
+  margin-left: 300px;
 }
 
 tr.tab 
 {
   background-color: rgb(63, 135, 187);
+
 }
 
 tr.primeiro
 {
   background-color: rgb(255, 194, 38);
+
 }
 
 .segundo /* podendo colocar só a classe que o programa entende */
 {
   background-color: rgb(189, 189, 189);
+
 }
 
 tr.terceiro
 {
   background-color: rgb(161, 118, 91);
+
 }
 
 td
 {
   border: 1px solid black;
   padding: 6px;
+  text-align: center;
 }
 
 img
 {
  width : 15%;
+}
+
+#Tit
+{
+  text-align: center;
 }
